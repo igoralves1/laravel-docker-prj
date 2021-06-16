@@ -157,6 +157,10 @@ Default Schema: homestead
 Password: secret
 ```
 
+Note:
+MySql - Laravel Backup 
+A modern backup solution for Laravel apps -> https://github.com/spatie/laravel-backup
+
 ## Some useful commands:
 1 - Check Containers
 ```
