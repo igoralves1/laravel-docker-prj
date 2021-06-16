@@ -122,7 +122,8 @@ volumes:
   - ./mysql:/var/lib/mysql
 ```
 
->It is available some startup MySql configuration at `docker-compose.yml` in the `mysql` session. By default it is created a database called `homestead`, a user called `homestead` with the password `secret`. The MySql root password is also created with a password `secret`. To get SSH access to the MySql container `docker exec -it <mysql container ID>  /bin/bash`
+It is available some startup MySql configuration at `docker-compose.yml` in the `mysql` session. By default it is created a database called `homestead`, a user called `homestead` with the password `secret`. The MySql root password is also created with a password `secret`. To get SSH access to the MySql container   
+```docker exec -it <mysql container ID>  /bin/bash```
 
 >If having ```SQLSTATE[HY000] [2002] Connection refused (SQL: select * from information_schema.tables where table_schema = laravel and table_name = migrations and table_type = 'BASE TABLE')``` just replace `DB_HOST=127.0.0,1` or `DB_HOST=0.0.0.0` to `DB_HOST=mysql`.  
 >This is the final configuration in `.env`:  
@@ -134,6 +135,17 @@ DB_DATABASE=homestead
 DB_USERNAME=homestead
 DB_PASSWORD=secret
 ```
+If the MySql Container is already running and want to create a permanent storage
+1 - stop and remove mysql container:
+```
+docker stop mysql && docker rm mysql
+```
+2 - rebuild project:
+```
+docker-compose up -d --build site
+```
+
+
 Issues with Mysql connection refer to `https://github.com/aschmelyun/docker-compose-laravel/issues/48` or `https://github.com/aschmelyun/docker-compose-laravel/issues/70`  
 
 Note: using MySql-Workbench this is the configuration:
