@@ -186,10 +186,25 @@ docker ps -a && docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) &
 
 ## How to pull or create a Laravel project
 
-1 - `Clone your project` OR `Create a new project` OR  `Copy all of the files` directly into this `src/` directory.
-2 - Build the Docker service: `docker-compose up -d --build site`
-3. In your terminal go to the `docker-compose-laravel/src` folder: `cd docker-compose-laravel/src`
-4. Remove the `README.md`: ```cd src/ && rm README.md```
-5. Create a new Laravel project ```docker-compose run --rm composer create-project laravel/laravel .```
-6. Example: `~/vhosts/docker-compose-laravel/src(master)$ docker-compose run --rm composer create-project laravel/laravel .`
+1 - Clone your project OR Create a new project OR  Copy all of the files directly into this `src/` directory.
+2 - Build the Docker service:   
+```
+docker-compose up -d --build site
+```
+3 - In your terminal go to the `docker-compose-laravel/src` folder:   
+```
+cd docker-compose-laravel/src
+```
+5 - Remove the `README.md`:   
+```
+cd src/ && rm README.md
+```
+6 - Create a new Laravel project:    
+```
+docker-compose run --rm composer create-project laravel/laravel .
+```
+7 - Example:   
+```
+~/vhosts/docker-compose-laravel/src(master)$ docker-compose run --rm composer create-project laravel/laravel .
+```
 
