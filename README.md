@@ -85,6 +85,11 @@ Bringing up the Docker Compose network with `site` instead of just using `up`, e
 
 Three additional containers are included that handle Composer, NPM, and Artisan commands *without* having to have these platforms installed on your local computer. Use the following command examples from your project root, modifying them to fit your particular use case. From inside `docker-compose-laravel/src(master)$` run the following commands:
 
+0 - Usage of `compose`
+```
+docker-compose run --rm <compose_command>
+```
+
 1 - Generate the key
 ```
 docker-compose run --rm artisan key:generate
