@@ -229,3 +229,49 @@ docker-compose run --rm composer create-project laravel/laravel .
 ~/vhosts/docker-compose-laravel/src(master)$ docker-compose run --rm composer create-project laravel/laravel .
 ```
 
+# =====================
+
+- [How do I clone all remote branches?](https://stackoverflow.com/questions/67699/how-do-i-clone-all-remote-branches)
+  - Look at the local branches in your repository after clone this repository:
+    ```
+      $ git branch
+      * master
+    ```
+  - But there are other branches hiding in your repository! See these using the -a flag:
+    ```
+      * master
+      remotes/origin/HEAD -> origin/master
+      remotes/origin/LEPP-stack
+      remotes/origin/master
+    ```
+  - To take a quick peek at an upstream branch, check it out directly:
+    ```
+      $ git checkout origin/LEPP-stack
+    ```
+  - To work on that branch, create a local tracking branch, which is done automatically by:
+    ```
+      $ git checkout LEPP-stack
+
+      Branch experimental set up to track remote branch experimental from origin.
+      Switched to a new branch 'experimental'
+    ```
+  - Here, "new branch" simply means that the branch is taken from the index and created locally for you. As the previous line tells you, the branch is being set up to track the remote branch, which usually means the origin/branch_name branch.
+
+    Your local branches should now show:
+    ```
+      $ git branch
+      * LEPP-stack
+        master
+    ```
+  - You can track more than one remote repository using git remote:
+    ```
+      $ git remote add win32 git://example.com/users/joe/myproject-win32-port
+      $ git branch -a
+      * master
+        remotes/origin/HEAD
+        remotes/origin/master
+        remotes/origin/v1.0-stable
+        remotes/origin/experimental
+        remotes/win32/master
+        remotes/win32/new-widgets
+    ```
